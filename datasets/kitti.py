@@ -28,6 +28,8 @@ import numpy as np
 from PIL import Image
 from lxml import etree
 
+python_version = sys.version_info.major
+
 ###########################################################
 ##########        KITTI to YOLO Conversion       ##########
 ###########################################################
@@ -119,7 +121,10 @@ def make_yolo_directories(yolo):
 	Returns: None
 	"""
 	if os.path.exists(yolo):
-		prompt = input('Directory already exists.  Overwrite? (yes, no): ')
+		if python_version == 3:
+			prompt = input('Directory already exists. Overwrite? (yes, no): ')
+		else:
+			prompt = raw_input('Directory already exists. Overwrite? (yes, no): ')
 		if prompt == 'no':
 			exit(0)
 		shutil.rmtree(yolo)
@@ -300,7 +305,10 @@ def make_voc_directories(voc):
 	Returns: None
 	"""
 	if os.path.exists(voc):
-		prompt = input('Directory already exists.  Overwrite? (yes, no): ')
+		if python_version == 3:
+			prompt = input('Directory already exists. Overwrite? (yes, no): ')
+		else:
+			prompt = raw_input('Directory already exists. Overwrite? (yes, no): ')
 		if prompt == 'no':
 			exit(0)
 		shutil.rmtree(voc)

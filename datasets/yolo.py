@@ -93,7 +93,10 @@ def make_kitti_directories(kitti):
 	Returns: None
 	"""
 	if os.path.exists(kitti):
-		prompt = input('Directory already exists. Overwrite? (yes, no): ')
+		if python_version == 3:
+			prompt = input('Directory already exists. Overwrite? (yes, no): ')
+		else:
+			prompt = raw_input('Directory already exists. Overwrite? (yes, no): ')
 		if prompt == 'no':
 			exit(0)
 		shutil.rmtree(kitti)
