@@ -124,11 +124,11 @@ def kitti(yolo_dir, kitti_dir, label=None):
 			img.close()
 			labels, coords = parse_labels_kitti(os.path.join(yolo_dir + 
 				"train/labels/" + f), labels_split, w, h)
-			yolof = open(kitti_dir + "train/labels/" + f, "a+")
+			kittif = open(kitti_dir + "train/labels/" + f, "a+")
 			for l, c in zip(labels, coords):
-				yolof.write(l + " 0 0 0 " + str(c[0]) + " " + str(c[1]) +
+				kittif.write(l + " 0 0 0 " + str(c[0]) + " " + str(c[1]) +
 					" " + str(c[2]) + " " + str(c[3]) + " 0 0 0 0 0 0 0 0\n")
-			yolof.close()
+			kittif.close()
 
 	# Iterate through yolo validation data
 	for f in os.listdir(yolo_dir + "val/labels/"):
@@ -139,11 +139,11 @@ def kitti(yolo_dir, kitti_dir, label=None):
 			img.close()
 			labels, coords = parse_labels_kitti(os.path.join(yolo_dir + 
 				"val/labels/" + f), labels_split, w, h)
-			yolof = open(kitti_dir + "val/labels/" + f, "a+")
+			kittif = open(kitti_dir + "val/labels/" + f, "a+")
 			for l, c in zip(labels, coords):
-				yolof.write(l + " 0 0 0 " + str(c[0]) + " " + str(c[1]) +
+				kittif.write(l + " 0 0 0 " + str(c[0]) + " " + str(c[1]) +
 					" " + str(c[2]) + " " + str(c[3]) + " 0 0 0 0 0 0 0 0\n")
-			yolof.close()
+			kittif.close()
 
 
 	# Copy images from yolo to kitti

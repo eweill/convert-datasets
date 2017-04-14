@@ -24,34 +24,34 @@ def parse_args():
 	required.add_argument('--from',
 						  dest='from_key',
 						  required=True,
-						  help=f'Format to convert dataset from',
+						  help='Format to convert dataset from.',
 						  choices=['kitti','lisa','voc','yolo'],
 						  type=str, nargs=1)
 	required.add_argument('--from-path',
 						  dest='from_path',
 						  required=True,
-						  help=f'Path to dataset you wish to convert.',
+						  help='Path to dataset you wish to convert.',
 						  type=str, nargs=1)
 	required.add_argument('--to',
                           dest='to_key',
                           required=True,
-                          help=f'Format to convert dataset to',
+                          help='Format to convert dataset to',
                           choices=['kitti','lisa','voc','yolo'],
                           type=str, nargs=1)
 	required.add_argument('--to-path',
 						  dest='to_path',
 						  required=True,
-						  help=f'Path to output dataset to convert to.',
+						  help='Path to output dataset to convert to.',
 						  type=str, nargs=1)
 	optional.add_argument('-l', '--label',
     					  dest='label',
     					  required=False,
-    					  help=f'Label file necessary for yolo conversion.',
+    					  help='Label file necessary for yolo conversion.',
     					  type=str, nargs=1)
 	optional.add_argument('-v','--verbose',
                           dest='verbose',
                           required=False,
-                          help=f'Print out during execution of the script.')
+                          help='Print out during execution of the script.')
 
 	args = parser.parse_args()
 	return args
