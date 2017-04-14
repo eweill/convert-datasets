@@ -271,7 +271,7 @@ def parse_labels_voc(label_file):
 	for line in lfile:
 		l = line.split(" ")
 		all_labels.append(l[0])
-		coords = list(map(int, list(map(int, l[4:8]))))
+		coords = list(map(int, list(map(float, l[4:8]))))
 		xmin = coords[0]
 		ymin = coords[1]
 		xmax = coords[2]
