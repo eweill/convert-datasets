@@ -9,12 +9,6 @@ from datasets import lisa
 from datasets import voc
 from datasets import yolo
 
-python_version = sys.version_info.major
-if python_version == 3:
-	print ("Python 3")
-else:
-	print ("Python 2")
-
 def parse_args():
 	"""
 	Definition: Parse command line arguments.
